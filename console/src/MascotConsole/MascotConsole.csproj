@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF><UseWindowsForms>true</UseWindowsForms><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>AIMascot.Console</AssemblyName><Version>1.2.0</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>../../../assets/pets/grok/grok.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+    <Resource Include="../../../assets/pets/chatgpt/idle.png" Link="Assets/dragon.png" />
+    <Resource Include="../../../assets/console/gemini.png" Link="Assets/gemini.png" />
+    <Resource Include="../../../assets/pets/grok/idle.png" Link="Assets/grok.png" />
+    <Resource Include="../../../assets/pets/claude/idle.png" Link="Assets/claude.png" />
+    <Resource Include="../../../assets/pets/deepseek/idle.png" Link="Assets/deepseek.png" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <AssemblyName>AIMascot.Grok</AssemblyName>
+    <RootNamespace>AIMascot.Grok</RootNamespace>
+    <ApplicationIcon>../../../../assets/pets/grok/grok.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>1.2.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../../src/AIMascot.Core/AIMascot.Core.csproj" />
+    <Resource Include="../../../../assets/pets/grok/idle.png" Link="Assets/idle.png" />
+    <Resource Include="../../../../assets/pets/grok/closed.png" Link="Assets/closed.png" />
+    <Resource Include="../../../../assets/pets/grok/happy.png" Link="Assets/happy.png" />
+    <Resource Include="../../../../assets/pets/grok/grok.ico" Link="Assets/grok.ico" />
+  </ItemGroup>
+  <ItemGroup><Compile Include="../../../../platform/RuntimeStatus.cs" Link="Platform/RuntimeStatus.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../../../../platform/TargetPaths.cs" Link="Platform/TargetPaths.cs" /></ItemGroup>
+</Project>

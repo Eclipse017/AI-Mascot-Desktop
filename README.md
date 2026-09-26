@@ -12,6 +12,10 @@
 
 Windows x64 / C# / WPF / .NET 10。**无 API Key、无模型调用、无聊天读取、无任务 Hooks、无遥测。** 人物动作由本地规则驱动。
 
+![五位伙伴的统一控制台](docs/console.png)
+
+截图来自本地运行包；截图时全屏隐藏规则生效。人物素材许可见文末说明。
+
 ## 下载与运行
 
 1. 从 [Releases](https://github.com/Eclipse017/AI-Mascot-Desktop/releases) 下载 Windows x64 ZIP。
@@ -57,6 +61,8 @@ pwsh -NoProfile -File ./scripts/Build.ps1 -Publish
 脚本先运行核心、Windows、控制器和路径解析检查，再发布自包含包。输出路径显示为 `PACKAGE: ...`。也可通过 `AI_MASCOT_DOTNET` 环境变量指定本机 SDK 的 dotnet 可执行文件。角色程序和控制台在同一目录，共享相同 .NET 运行文件；打包时逐项验证同名文件一致。
 
 只有 `src/`、`roles/`、`platform/`、`console/`、`tests/` 和运行素材参与构建。本仓库从经过选择的公开文件创建独立历史，不包含个人开发日志、机器诊断、快捷方式备份或原始社区参考图。
+
+在没有公开版桌宠运行时，可用 `pwsh -NoProfile -File ./scripts/Verify-Portable.ps1 -PackagePath "完整运行包目录"` 进行本地集成检查。脚本启动并退出本项目的五位桌宠，恢复显示偏好，不修改登录启动，也不启动 AI 客户端。首版验证范围见 [VALIDATION.md](VALIDATION.md)。
 
 ## 隐私与已知限制
 

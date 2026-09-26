@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <AssemblyName>AIMascot.Dragon</AssemblyName>
+    <RootNamespace>AIMascot.Windows</RootNamespace>
+    <ApplicationIcon>../../assets/pets/chatgpt/dragon.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>1.2.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../AIMascot.Core/AIMascot.Core.csproj" />
+    <Resource Include="../../assets/pets/chatgpt/idle.png" Link="Assets/idle.png" />
+    <Resource Include="../../assets/pets/chatgpt/closed.png" Link="Assets/closed.png" />
+    <Resource Include="../../assets/pets/chatgpt/happy.png" Link="Assets/happy.png" />
+    <Resource Include="../../assets/pets/chatgpt/dragon.ico" Link="Assets/dragon.ico" />
+  </ItemGroup>
+  <ItemGroup><Compile Include="../../platform/RuntimeStatus.cs" Link="Platform/RuntimeStatus.cs" /></ItemGroup>
+</Project>
