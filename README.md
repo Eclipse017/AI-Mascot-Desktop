@@ -26,7 +26,13 @@ Windows x64 / C# / WPF / .NET 10。**无 API Key、无模型调用、无聊天�
 
 角色细项可调节大小、位置、休息和登录启动。默认不启用登录启动；若启用后移动整个包，需从新位置重新开启。所有 EXE、DLL 和子目录都要一起保留。
 
-**本项目不会启动任何 AI 客户端、网页、CLI 或模型，包括 Claude。** 演示不需要安装对应 AI 应用。“跟随”只是被动检测应用是否运行，不代表 AI 思考或任务进度。本项目与相关 AI 品牌没有官方关联。
+**桌宠和统一控制台不会启动任何 AI 客户端、网页、CLI 或模型，包括 Claude。** 演示不需要安装对应 AI 应用。“跟随”只是被动检测应用是否运行，不代表 AI 思考或任务进度。本项目与相关 AI 品牌没有官方关联。
+
+## 可选：Gemini 猫娘启动选择器
+
+新增独立的 [Gemini 启动选择器](launcher/gemini/README.md)：为桌面 Gemini 入口使用猫娘图标，双击后选择打开 **Gemini 桌面版** 或 **Antigravity**。它仅在选择后启动指定的已安装客户端，支持原快捷方式备份与恢复，不修改 Gemini Notebook。
+
+此组件从源码单独构建安装，尚未包含在现有 v1.2.0 桌宠 ZIP 中。构建与安装命令、素材说明和验证范围见其使用说明。
 
 ## 可选：跟随应用
 
@@ -76,4 +82,4 @@ pwsh -NoProfile -File ./scripts/Build.ps1 -Publish
 
 ---
 
-**English:** Five offline Windows desktop companions in one control panel. Download the self-contained ZIP, extract everything and run `AIMascot.Console.exe`. The first run uses local demo mode. No AI account, API key, model request, chat access or telemetry is required. The app never launches Claude or any other AI client. Code is MIT; bundled generated artwork has a separate notice. Windows x64 only.
+**English:** Five offline Windows desktop companions in one control panel. Download the self-contained ZIP, extract everything and run `AIMascot.Console.exe`. The first run uses local demo mode. No AI account, API key, model request, chat access or telemetry is required. The companions and console never launch AI clients. A separate, optional Gemini launcher lets the user choose an installed Gemini desktop client or Antigravity; it must be built separately. Code is MIT; bundled generated artwork has a separate notice. Windows x64 only.
