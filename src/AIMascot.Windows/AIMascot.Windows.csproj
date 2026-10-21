@@ -9,7 +9,7 @@
     <RootNamespace>AIMascot.Windows</RootNamespace>
     <ApplicationIcon>../../assets/pets/chatgpt/dragon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../AIMascot.Core/AIMascot.Core.csproj" />

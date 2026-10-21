@@ -18,7 +18,7 @@ Windows x64 / C# / WPF / .NET 10。**无 API Key、无模型调用、无聊天�
 
 ## 下载与运行
 
-1. 从 [Releases](https://github.com/Eclipse017/AI-Mascot-Desktop/releases) 下载 Windows x64 ZIP。
+1. 从 [v1.3.0 Release](https://github.com/Eclipse017/AI-Mascot-Desktop/releases/tag/v1.3.0) 下载 `AI-Mascot-Desktop-v1.3.0-win-x64.zip`（完整桌宠与启动器）或 `Gemini-Launcher-v1.3.0-win-x64.zip`（仅猫娘启动器）。
 2. 解压整个文件夹到你选择的位置，双击 **`AIMascot.Console.exe`**。自包含运行包无需安装 .NET SDK，也无需管理员权限。
 3. 首次打开默认为本地演示，五位依次排列。可以拖动人物；点击招呼，在额头来回移动可摸头；右键打开菜单。
 
@@ -32,7 +32,7 @@ Windows x64 / C# / WPF / .NET 10。**无 API Key、无模型调用、无聊天�
 
 新增独立的 [Gemini 启动选择器](launcher/gemini/README.md)：为桌面 Gemini 入口使用猫娘图标，双击后选择打开 **Gemini 桌面版** 或 **Antigravity**。它仅在选择后启动指定的已安装客户端，支持原快捷方式备份与恢复，不修改 Gemini Notebook。
 
-此组件从源码单独构建安装，尚未包含在现有 v1.2.0 桌宠 ZIP 中。构建与安装命令、素材说明和验证范围见其使用说明。
+v1.3.0 的完整下载包已包含预编译的选择器；只需要该功能也可下载独立小包。完整解压后打开 `Gemini-Launcher` 文件夹（独立小包直接进入解压目录），双击 `Install-Gemini-Launcher.cmd`，再打开桌面 Gemini。安装需要 PowerShell 7、已安装的两个客户端及其快捷方式；选择器运行需要 .NET Framework 4.7.2+，无需 .NET SDK。备份与恢复说明随包提供。
 
 ## 可选：跟随应用
 
@@ -66,7 +66,9 @@ pwsh -NoProfile -File ./scripts/Build.ps1 -Publish
 
 脚本先运行核心、Windows、控制器和路径解析检查，再发布自包含包。输出路径显示为 `PACKAGE: ...`。也可通过 `AI_MASCOT_DOTNET` 环境变量指定本机 SDK 的 dotnet 可执行文件。角色程序和控制台在同一目录，共享相同 .NET 运行文件；打包时逐项验证同名文件一致。
 
-只有 `src/`、`roles/`、`platform/`、`console/`、`tests/` 和运行素材参与构建。本仓库从经过选择的公开文件创建独立历史，不包含个人开发日志、机器诊断、快捷方式备份或原始社区参考图。
+要构建 Release 的完整包和启动器独立包，运行 `pwsh -NoProfile -File ./scripts/Package-Release.ps1 -Version 1.3.0`。该脚本额外构建和测试启动器，生成两份 ZIP、包内逐文件校验清单和下载文件 SHA-256 清单。已有输出目录不会被覆盖。使用 `scripts/Verify-ReleasePackage.ps1` 可在新目录中解压、逐项校验并测试随包安装/恢复脚本。
+
+桌宠构建使用 `src/`、`roles/`、`platform/`、`console/`、`tests/` 和运行素材；Release 还包含 `launcher/gemini/` 中的启动器。本仓库从经过选择的公开文件创建独立历史，不包含个人开发日志、机器诊断、快捷方式备份或原始社区参考图。
 
 在没有公开版桌宠运行时，可用 `pwsh -NoProfile -File ./scripts/Verify-Portable.ps1 -PackagePath "完整运行包目录"` 进行本地集成检查。脚本启动并退出本项目的五位桌宠，恢复显示偏好，不修改登录启动，也不启动 AI 客户端。首版验证范围见 [VALIDATION.md](VALIDATION.md)。
 
@@ -82,4 +84,4 @@ pwsh -NoProfile -File ./scripts/Build.ps1 -Publish
 
 ---
 
-**English:** Five offline Windows desktop companions in one control panel. Download the self-contained ZIP, extract everything and run `AIMascot.Console.exe`. The first run uses local demo mode. No AI account, API key, model request, chat access or telemetry is required. The companions and console never launch AI clients. A separate, optional Gemini launcher lets the user choose an installed Gemini desktop client or Antigravity; it must be built separately. Code is MIT; bundled generated artwork has a separate notice. Windows x64 only.
+**English:** Five offline Windows desktop companions in one control panel. Download the self-contained ZIP, extract everything and run `AIMascot.Console.exe`. The companions and console never launch AI clients. v1.3.0 also includes a prebuilt, optional Gemini catgirl launcher that lets the user choose an installed Gemini desktop client or Antigravity. It is available in both the full bundle and a standalone ZIP; run its install CMD after extraction. Launcher installation requires PowerShell 7 and execution requires .NET Framework 4.7.2+, but no SDK. Code is MIT; artwork has a separate notice. Windows x64 only.

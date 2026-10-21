@@ -3,12 +3,13 @@
 param(
     [string]$InstallRoot = (Join-Path ([Environment]::GetFolderPath('LocalApplicationData')) 'AI-Mascot-Desktop\GeminiLauncher'),
     [string]$BackupRoot = (Join-Path ([Environment]::GetFolderPath('LocalApplicationData')) 'AI-Mascot-Desktop\GeminiLauncher-Backups'),
+    [string]$PayloadDirectory,
     [string]$DesktopShortcut = (Join-Path ([Environment]::GetFolderPath('Desktop')) 'Gemini.lnk'),
     [string]$AntigravityShortcut = (Join-Path ([Environment]::GetFolderPath('StartMenu')) 'Programs\Antigravity.lnk')
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
-$build = Join-Path $root 'artifacts\build'
+$build = if ($PayloadDirectory) { [IO.Path]::GetFullPath($PayloadDirectory) } else { Join-Path $root 'artifacts\build' }
 $stamp = Get-Date -Format 'yyyyMMdd-HHmmss-fff'
 $install = Join-Path $InstallRoot $stamp
 $backup = Join-Path $BackupRoot $stamp

@@ -1,4 +1,14 @@
-# v1.2.0 local validation
+# Local validation
+
+## v1.3.0 release packages
+
+The release packaging workflow rebuilds the five companions and console, includes the prebuilt Gemini catgirl launcher, and produces both a full Windows x64 bundle and a standalone launcher ZIP. Package entry points and instructions are under `distribution/` and `launcher/gemini/distribution/`.
+
+Validation includes the existing 329 source checks, 16 launcher behavior checks, 10 installer/restore fixture checks, and the 86-check portable companion integration suite. Each ZIP is extracted to a new directory containing spaces and Chinese characters, its exact file inventory and SHA-256 manifest are checked, and the extracted install/restore scripts are tested against inert shortcut fixtures. Automated tests do not launch AI clients. Raw machine evidence and backup shortcuts are excluded from the source and packages.
+
+The launcher has separate binary version metadata and a multi-resolution catgirl ICO. Real mouse clicks, actual desktop screenshots, a clean VM, and broad mixed-DPI coverage remain UNVERIFIED; package integrity and fixture checks do not substitute for those. See [launcher validation](launcher/gemini/VALIDATION.md) for the earlier local launch evidence and its boundaries.
+
+## v1.2.0 local validation
 
 Validated on Windows x64 with .NET SDK 10.0.401. All Claude checks ran locally; no Claude client, webpage, CLI or model was opened or invoked. No cloud CI was used.
 

@@ -1,6 +1,9 @@
 #requires -Version 7.0
 [CmdletBinding()]
-param()
+param(
+    [string]$InstallerScript = (Join-Path $PSScriptRoot 'Install.ps1'),
+    [string]$PayloadDirectory
+)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $fixture = Join-Path $root ('artifacts\installer tests\中文 ' + [guid]::NewGuid().ToString('N'))
@@ -25,14 +28,15 @@ function Assert-Check([bool]$condition, [string]$name) {
     $script:checks++
 }
 $options = @{ DesktopShortcut=$desktop; AntigravityShortcut=$agent; InstallRoot=(Join-Path $fixture 'installed'); BackupRoot=(Join-Path $fixture 'backups') }
-$first = & "$PSScriptRoot\Install.ps1" @options | ConvertFrom-Json
+if ($PayloadDirectory) { $options.PayloadDirectory = $PayloadDirectory }
+$first = & $InstallerScript @options | ConvertFrom-Json
 Assert-Check ($first.Status -eq 'PASS') 'Installation readback'
 $firstRoot = $first.Installed.WorkingDirectory
 Assert-Check ((Get-FileHash -LiteralPath "$firstRoot\targets\gemini.lnk").Hash -eq $originalHash) 'Gemini original entry preserved'
 Assert-Check ((Get-FileHash -LiteralPath "$firstRoot\targets\antigravity.lnk").Hash -eq $agentHash) 'Antigravity original entry preserved'
 Assert-Check ((Get-FileHash -LiteralPath $agent).Hash -eq $agentHash) 'Source Antigravity shortcut unchanged'
 $firstHash = (Get-FileHash -LiteralPath $desktop).Hash
-$second = & "$PSScriptRoot\Install.ps1" @options | ConvertFrom-Json
+$second = & $InstallerScript @options | ConvertFrom-Json
 Assert-Check ((Get-FileHash -LiteralPath (Join-Path $second.Installed.WorkingDirectory 'targets\gemini.lnk')).Hash -eq $originalHash) 'Reinstallation cannot recursively launch the picker'
 & $second.RestoreScript | Out-Null
 Assert-Check ((Get-FileHash -LiteralPath $desktop).Hash -eq $firstHash) 'Restore previous installation'

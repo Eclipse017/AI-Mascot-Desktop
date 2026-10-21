@@ -4,6 +4,12 @@
 
 这是独立可选组件，不改变五角色桌宠的跟随逻辑。它只在用户选择后启动对应客户端；选择器本身不连接模型、不读聊天、不发送消息。客户端自身的网络行为由客户端决定。
 
+## 下载即用
+
+从 [v1.3.0 Release](https://github.com/Eclipse017/AI-Mascot-Desktop/releases/tag/v1.3.0) 下载完整桌宠包或 `Gemini-Launcher-v1.3.0-win-x64.zip`。完整解压后，在启动器目录双击 `Install-Gemini-Launcher.cmd`。程序已编译好，无需 .NET SDK；安装需要 PowerShell 7，运行需要 .NET Framework 4.7.2+。先准备可用的桌面 Gemini 快捷方式与开始菜单 Antigravity 快捷方式。
+
+完整包的启动器在 `Gemini-Launcher/` 中；独立包的解压目录就是启动器目录。随包 `README.txt` 说明安装、备份、恢复及自定义路径。不要直接运行未配置的 `app/GeminiLauncher.exe`。
+
 ## 构建
 
 需要 Windows、PowerShell 7，以及 .NET Framework 4.7.2 或更高版本。使用 Windows 的 .NET Framework C# 编译器，不依赖桌宠使用的 .NET 10 SDK。
@@ -37,4 +43,4 @@ pwsh -NoProfile -File ./launcher/gemini/scripts/Install.ps1
 
 复用仓库已有的 `assets/pets/gemini/gemini.ico` 和 `assets/console/gemini.png`；素材继续遵循 [ASSETS.md](../../ASSETS.md)，不属于 MIT 代码许可。
 
-测试结果和已知验收边界见 [VALIDATION.md](VALIDATION.md)。现有桌宠 v1.2.0 ZIP 不包含此新增组件；当前从源码单独构建安装。
+测试结果和已知验收边界见 [VALIDATION.md](VALIDATION.md)。源码构建和 Release 下载包使用同一套程序与安装/恢复逻辑；下载包通过 `-PayloadDirectory` 指定随包预编译文件。

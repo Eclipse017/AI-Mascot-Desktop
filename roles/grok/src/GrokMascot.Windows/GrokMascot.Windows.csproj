@@ -9,7 +9,7 @@
     <RootNamespace>AIMascot.Grok</RootNamespace>
     <ApplicationIcon>../../../../assets/pets/grok/grok.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../../../../src/AIMascot.Core/AIMascot.Core.csproj" />

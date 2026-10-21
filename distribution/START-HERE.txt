@@ -1,0 +1,15 @@
+AI Mascot Desktop · v1.3.0
+
+完整解压到一个可写目录，保留全部文件和子目录。
+
+五角色桌宠：双击 AIMascot.Console.exe。
+  自包含 Windows x64 程序，无需 .NET SDK。桌宠和控制台不启动 AI 客户端。
+
+Gemini 猫娘图标 + Gemini/Antigravity 启动选择：
+  打开 Gemini-Launcher 文件夹，双击 Install-Gemini-Launcher.cmd。
+  安装需要 PowerShell 7、已安装的 Gemini 桌面版和 Antigravity，且保留各自快捷方式。
+  安装完成后双击桌面 Gemini，即可选择打开哪个客户端。
+  该组件已编译好，详细说明和恢复方式见 Gemini-Launcher/README.txt。
+
+LICENSE 是代码许可；人物素材另见 ASSETS.md。
+SHA256SUMS.txt 记录包内文件校验值。验证范围见 VALIDATION.md 和 Gemini-Launcher/VALIDATION.md。

@@ -25,4 +25,6 @@ pwsh -NoProfile -File ./launcher/gemini/scripts/Build.ps1 -Test
 pwsh -NoProfile -File ./launcher/gemini/scripts/Test-Installer.ps1
 ```
 
-Generated previews, fixture shortcuts and diagnostic output remain under the ignored `launcher/gemini/artifacts/` directory. The existing desktop-companion package and tests were not changed or rerun for this independent component.
+Generated previews, fixture shortcuts and diagnostic output remain under the ignored `launcher/gemini/artifacts/` directory. The initial source-only integration did not change or rerun the desktop-companion tests.
+
+For the v1.3.0 downloadable release, both ZIPs include the prebuilt launcher, its multi-resolution catgirl icon, install/restore scripts, and a double-click CMD entry point requiring PowerShell 7. The packaged installer accepts a payload directory, so a downloaded ZIP needs no compiler or SDK. `scripts/Verify-ReleasePackage.ps1` verifies extracted file inventories/hashes and reruns the 10 installer checks using the scripts and binaries extracted from each ZIP. All backup paths and launch configuration are created locally at installation time and are never shipped.
